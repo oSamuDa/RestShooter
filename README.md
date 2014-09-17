@@ -14,6 +14,8 @@ A Scenario is a list of steps, a step is a URL with parameter and checks (option
 How to use it
 =============
 
+Configuration file
+------------------
 First we have to define the configuration, one per platform to target
 
 ```javascript
@@ -41,4 +43,21 @@ First we have to define the configuration, one per platform to target
 
 **Report** is the file where is report will be written at the end of the test
 
+First Step
+----------
 
+You need to create fil, by convention we will give it an '.stp' extension. The following exemple is for a login which must be reusable so it is the first one to create as a step.
+
+```javascript
+{
+	name:"Login",
+	url:"/login",
+	method:"POST",
+	content:"JSON",
+	data:'{"login":"olivier",password:"mypass"}',
+	checks:[{
+		path:'response.answer',
+		value:'ok'
+	}]
+}
+```

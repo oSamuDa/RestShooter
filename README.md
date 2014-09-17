@@ -72,8 +72,9 @@ You need to create file, by convention we will give it an '.stp' extension. The 
   * **test** this is a set of test for a node like exist or notempty separated by a '|'
 
 Here after the list of test:
-| Name          | Behavior      |
-| ------------- |:--------------|
+
+| Name          | Behavior                                       |
+| ------------- |------------------------------------------------|
 | Exist         | Fail if the node is not existing in the answer |
 | notempty      | Fail if the node is string empty or null       |
 

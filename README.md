@@ -46,7 +46,7 @@ First we have to define the configuration, one per platform to target
 First Step
 ----------
 
-You need to create fil, by convention we will give it an '.stp' extension. The following exemple is for a login which must be reusable so it is the first one to create as a step.
+You need to create file, by convention we will give it an '.stp' extension. The following exemple is for a login which must be reusable so it is the first one to create as a step.
 
 ```javascript
 {
@@ -58,6 +58,44 @@ You need to create fil, by convention we will give it an '.stp' extension. The f
 	checks:[{
 		path:'response.answer',
 		value:'ok'
+	}]
+}
+```
+**name** will be used in report and error to help investigation must be uniq per step
+**url** will be added to the base url previously presented in the configuration
+**method** is for now POST or GET
+**content** is the content type received
+**data** is the data object to be sent. Always a string, it will be used as it is in POST and will be escaped for GET
+**checks** is a list of checks to perform once the response is coming back from the server
+  * **path** is the path into the JSON returned to be checked (ie {response:{answer:ok}})
+  * **value** is expect value for the previous specicified node.
+  * **test** this is a set of test for a node like exist or notempty separated by a '|'
+
+Here after the list of test:
+| Name          | Behavior      |
+| ------------- |:--------------|
+| Exist         | Fail if the node is not existing in the answer |
+| notempty      | Fail if the node is string empty or null       |
+
+
+Second Step
+----------
+
+You need to create a file that represent the scenario.
+
+```javascript
+{
+	name:'Login',
+	steps:[	
+		"login.stp"
+	],
+	checks:[{
+		path:'message',
+		value:''
+	},
+	{
+		path:'code',
+		value:0
 	}]
 }
 ```

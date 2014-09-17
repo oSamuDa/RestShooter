@@ -63,13 +63,13 @@ You need to create file, by convention we will give it an '.stp' extension. The 
 ```
 **name** will be used in report and error to help investigation must be uniq per step
 **url** will be added to the base url previously presented in the configuration
-**method** is for now POST or GET
+**method** is for now `POST` or `GET`
 **content** is the content type received
 **data** is the data object to be sent. Always a string, it will be used as it is in POST and will be escaped for GET
 **checks** is a list of checks to perform once the response is coming back from the server
-  * **path** is the path into the JSON returned to be checked (ie {response:{answer:ok}})
+  * **path** is the path into the JSON returned to be checked (ie `{response:{answer:ok}}`)
   * **value** is expect value for the previous specicified node.
-  * **test** this is a set of test for a node like exist or notempty separated by a '|'
+  * **test** this is a set of test for a node like exist or notempty separated by a `|`
 
 Here after the list of test:
 
@@ -100,3 +100,6 @@ You need to create a file that represent the scenario.
 	}]
 }
 ```
+**name** is the identifier of the scenario for the report and the log in the console.
+**steps** is the list of the steps to run for the scenario execution.
+**checks** is the list of validation to perform on each request.

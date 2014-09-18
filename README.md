@@ -88,7 +88,7 @@ Here after the list of test:
 Second Step
 ----------
 
-You need to create a file that represent the scenario.
+You need to create a file that represent the scenario. By convention we are using the '.scn' extension (ie: login.scn).
 
 ```javascript
 {
@@ -111,3 +111,8 @@ You need to create a file that represent the scenario.
 **steps** is the list of the steps to run for the scenario execution.
 
 **checks** is the list of validation to perform on each request.
+
+Run the script
+--------------
+
+node shooter.js integration.cfg
